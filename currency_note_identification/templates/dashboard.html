@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard {% endblock title %}
+
+{% block body %}
+{% if user.is_authenticated %}
+<!-- ======= Breadcrumbs ======= -->
+<section class="align-items-center justify-content-center p-5 mt-5">
+    <form action="" method="post" enctype="multipart/form-data"> 
+        {% csrf_token %}
+        <div class="animated fadeIn w-75 mx-auto shadow p-5 bg-white">
+
+            <div class="d-flex justify-content-center">
+                <a class="btn btn-outline-dark mx-5" href="predict_by_camera">Predict through Camera </a>
+                <a class="btn btn-outline-dark" href="predict_by_file">Upload File</a>
+            </div>
+        </div>
+    </form>
+</section>
+<!-- End Breadcrumbs -->
+
+{% endif %}
+{% endblock body %}

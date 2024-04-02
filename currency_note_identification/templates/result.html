@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Result{% endblock title %}
+{% block body %}
+
+<section class="p-5">
+    <div class="animated fadeIn w-75 mx-auto shadow p-5 mt-5 bg-white">
+        <h1 class="text-center mb-5" style="font-style: italic;">Results</h1>
+        <div class="row col-12">
+            <div class="col-6">
+                <h4 class=" text-center" style="font-style: italic;">Currency Image</h4>
+                <div class="img-container">
+                    <img src="{{currency.uploaded_note.url}}" />
+                </div>
+            </div>
+            <div class="col-6 justify-content-center text-center">
+                <h4 class="mb-3" style="font-style: italic;">Description</h4>
+                {% if currency.pred == "Fake" %}
+                <h3 class="text-danger">{{currency.pred}} Currency Detected !!</h3>
+                {% elif currency.pred == "Not_Detected" %}
+                <h3 class="text-danger">Currency Not Detected !!</h3>
+                {% else %}
+                <h3 class="text-primary">Rs. {{currency.pred}} Detected !!</h3>
+                {% endif %}
+                <a class="btn btn-primary mt-3" href="dashboard"> Go to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock body %}
